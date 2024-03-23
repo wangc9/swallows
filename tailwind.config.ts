@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        74: '296px',
+        67: '268px',
         480: '480px',
-        600: '600px',
+        570: '570px',
       },
       backgroundImage: {
         "map": "url('/public/placeholder.jpg')",

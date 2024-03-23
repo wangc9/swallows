@@ -44,7 +44,7 @@ export default function Selection(props: SelectionProps) {
 
   return (
     <div>
-      <div className="h-600 flex flex-col justify-between px-6">
+      <div className="h-570 flex flex-col justify-between px-6">
         <div className={`${step !== 0 && 'hidden'}`}>
           {state === '1' && (
             <LocationDetail location="Location 1" city="City 1" springActivity="Activity in spring" summerActivity="Activity in summer" autumnActivity="Activity in autumn" winter="Activity in winter" picture={placeholder} />
@@ -123,7 +123,7 @@ export default function Selection(props: SelectionProps) {
         </div>
         <div className={`${step !== 3 && 'hidden'} flex flex-col`}>
           <p className="self-center text-2xl font-bold py-6">Thank you for supporting the eco transition of the travel industry. Here is a summary of your journey</p>
-          <JourneySummary location={data[Number(state)].location} city={data[Number(state)].city} springActivity={data[Number(state)].springActivity} summerActivity={data[Number(state)].summerActivity} autumnActivity={data[Number(state)].autumnActivity} winter={data[Number(state)].winter} picture={data[Number(state)].picture} />
+          <JourneySummary location={data[0].location} city={data[0].city} springActivity={data[0].springActivity} summerActivity={data[0].summerActivity} autumnActivity={data[0].autumnActivity} winter={data[0].winter} picture={data[0].picture} />
         </div>
       </div>
       <nav className="flex justify-between px-6">

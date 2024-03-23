@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`px-10 h-dvh ${hankenGrotesk.className}`}>{children}</body>
+      <body className={`px-10 bg-[url('../public/scenery-opacity.png')] bg-cover bg-no-repeat ${hankenGrotesk.className}`}>{children}</body>
     </html>
   );
 }

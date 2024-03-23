@@ -3,8 +3,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import holiday from '@/public/holiday.svg';
-import volunteer from '@/public/volunteer.svg';
+import holiday from '@/public/traveller.png';
+import volunteer from '@/public/community.png';
 import leftArrow from '@/public/left-arrow.svg';
 import rightArrow from '@/public/right-arrow.svg';
 import LocationDetail, { LocationDetailProps } from "./locationDetail";
@@ -50,7 +50,6 @@ export default function Selection(props: SelectionProps) {
   const { state } = props;
   const [step, setStep] = useState<number>(0);
   const [type, setType] = useState<number>(0);
-  const [addOn, setAddOn] = useState<number[]>([]);
 
   return (
     <div>
@@ -77,75 +76,33 @@ export default function Selection(props: SelectionProps) {
           {state === '7' && 
             <LocationDetail location={data[6].location} city={data[6].city} activities={data[6].activities} />
           }
-          {state === '' && 'Click on the map to read more about the location'}
+          {state === '' && <p className="font-semibold text-4xl">Click on the map to explore what each location has to offer</p>}
         </div>
         <div className={`${step !== 1 && 'hidden'} flex flex-col`}>
           <div className="flex justify-evenly">
             <button className={`flex flex-col items-center p-2 rounded-xl ${type === 1 && 'border-sky-500 border-2'} hover:border-sky-500 hover:border-2 transition-all duration-100`} onClick={() => {setType(1)}}>
               <Image className="py-4" src={holiday} width={100} height={100} alt="normal tourist" />
-              <p>Tourist</p>
+              <p className="font-semibold text-2xl">Tourist</p>
             </button>
             <button className={`flex flex-col items-center p-2 rounded-xl ${type === 2 && 'border-sky-500 border-2'} hover:border-sky-500 hover:border-2 transition-all duration-100`} onClick={() => {setType(2)}}>
               <Image className="py-4" src={volunteer} width={100} height={100} alt="leisure traveller" />
-              <p>Traveller</p>
+              <p className="font-semibold text-2xl">Traveller</p>
             </button>
             <button className={`flex flex-col items-center p-2 rounded-xl ${type === 3 && 'border-sky-500 border-2'} hover:border-sky-500 hover:border-2 transition-all duration-100`} onClick={() => {setType(3)}}>
               <Image className="py-4" src={logo} width={100} height={100} alt="swallower" />
-              <p>Swallower</p>
+              <p className="font-semibold text-2xl">Swallower</p>
             </button>
           </div>
           <ul className={`mt-4 ml-4 py-4 px-4 ${type === 1 ? ' ' : 'hidden'} w-full h-full border-2 border-sky-500 rounded-xl`}>
-            <li key={1}>Pay for a unique travel experience in a warm and unique farmland</li>
+            <li key={1} className="font-normal text-xl">Pay for a unique travel experience in a warm and unique farmland</li>
           </ul>
           <ul className={`mt-4 ml-4 py-4 px-4 ${type === 2 ? ' ' : 'hidden'} w-full h-full border-2 border-sky-500 rounded-xl`}>
-            <li key={1}>Enjoy a unique combination of leisure travel and work experience in a Finnish farmland while only paying for a small fee</li>
+            <li key={1} className="font-normal text-xl">Enjoy a unique combination of leisure travel and work experience in a Finnish farmland while only paying for a small fee</li>
           </ul>
           <ul className={`mt-4 ml-4 py-4 px-4 ${type === 3 ? ' ' : 'hidden'} w-full h-full border-2 border-sky-500 rounded-xl`}>
-            <li key={1}>Come and have an immersive experience in a Finnish countryside. We will take care of your accommodation, all you need is passion to get your hand dirty. But don't forget to have fun!</li>
+            <li key={1} className="font-normal text-xl">Come and have an immersive experience in a Finnish countryside. We will take care of your accommodation, all you need is passion to get your hand dirty. But don't forget to have fun!</li>
           </ul>
         </div>
-        {/* <div className={`${step !== 2 && 'hidden'} flex flex-col`}>
-          <p>Headline</p>
-          <div className="items-center flex py-6">
-            <input type="checkbox" className="peer relative appearance-none shrink-0 w-4 h-4 border-2 border-sky-500 rounded-sm mt-1 bg-inherit focus:outline-none focus:ring-offset-0 focus:ring-1 focus:ring-sky-300 checked:bg-sky-500 checked:border-0" onClick={
-              () => {
-                const index = addOn.findIndex((element) => element === 1);
-                if (index === -1) {
-                  setAddOn(addOn.concat(1));
-                } else {
-                  setAddOn(addOn.filter((element) => element !== 1));
-                }
-              }
-            } />
-            <p className="pl-4">Option 1</p>
-          </div>
-          <div className="items-center flex py-6">
-            <input type="checkbox" className="peer relative appearance-none shrink-0 w-4 h-4 border-2 border-sky-500 rounded-sm mt-1 bg-inherit focus:outline-none focus:ring-offset-0 focus:ring-1 focus:ring-sky-300 checked:bg-sky-500 checked:border-0" onClick={
-              () => {
-                const index = addOn.findIndex((element) => element === 2);
-                if (index === -1) {
-                  setAddOn(addOn.concat(2));
-                } else {
-                  setAddOn(addOn.filter((element) => element !== 2));
-                }
-              }
-            } />
-            <p className="pl-4">Option 2</p>
-          </div>
-          <div className="items-center flex py-6">
-            <input type="checkbox" className="peer relative appearance-none shrink-0 w-4 h-4 border-2 border-sky-500 rounded-sm mt-1 bg-inherit focus:outline-none focus:ring-offset-0 focus:ring-1 focus:ring-sky-300 checked:bg-sky-500 checked:border-0" onClick={
-              () => {
-                const index = addOn.findIndex((element) => element === 3);
-                if (index === -1) {
-                  setAddOn(addOn.concat(3));
-                } else {
-                  setAddOn(addOn.filter((element) => element !== 3));
-                }
-              }
-            } />
-            <p className="pl-4">Option 3</p>
-          </div>
-        </div> */}
         <div className={`${step !== 2 && 'hidden'} flex flex-col`}>
           <p className="self-center text-2xl font-bold py-6">Thank you for supporting the eco transition of the travel industry. Here is a summary of your journey</p>
           <JourneySummary location={data[Number(state)].location} city={data[Number(state)].city} activities= {data[Number(state)].activities} choice={type === 1 ? 'normal' : ''}/>

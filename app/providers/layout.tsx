@@ -19,7 +19,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`px-10 bg-[url('../public/p3-opacity.png')] bg-cover bg-no-repeat ${hankenGrotesk.className}`}>{children}</body>
+      <body className={`${hankenGrotesk.className}`}>
+        <div className="relative h-1600">
+          <div className="absolute inset-0 bg-opacity-75 bg-white" style={{zIndex: 1}} />
+          <div className="absolute inset-0 bg-cover bg-center bg-scroll" style={{ zIndex: 0, backgroundImage: "url('/p3-opacity-small.jpg')"}} />
+          <div className="absolute inset-0 px-10" style={{zIndex: 10}}>
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }

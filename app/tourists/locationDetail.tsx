@@ -15,17 +15,17 @@ export default function LocationDetail(props: LocationDetailProps) {
 
   return (
     <div className="flex flex-col">
-      <div className="flex py-2 items-center">
+      <div className="flex py-6 items-center">
         <Image src={destination} width={40} height={40} alt="destination" />
-        <p className="font-bold text-2xl pl-6">{location}</p>
+        <p className="font-bold text-4xl pl-6">{location}</p>
       </div>
-      <div className="flex py-2 items-center">
+      <div className="flex py-6 items-center">
         <Image src={locationPin} width={40} height={40} alt="destination" />
-        <p className="font-bold text-2xl pl-6">{city}</p>
+        <p className="font-bold text-4xl pl-6">{city}</p>
       </div>
-      <div className={`flex py-2 items-center ${activities === undefined && 'hidden'}`}>
+      <div className={`flex py-6 items-center ${activities === undefined && 'hidden'}`}>
         <Image src={work} width={40} height={40} alt="spring activities" />
-        <p className="font-bold text-2xl pl-6">{activities}</p>
+        <p className="font-bold text-4xl pl-6">{activities}</p>
       </div>
     </div>
   )

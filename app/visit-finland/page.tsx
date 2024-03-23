@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Header from "../components/header";
-// import Selection from "./selection";
+import Image from "next/image";
+import location from'@/public/location.svg';
 
 export default function VisitFinland() {
   const [place, setPlace] = useState<string>('');
@@ -10,11 +11,13 @@ export default function VisitFinland() {
   return (
     <div className="flex flex-col h-dvh content-center">
       <Header />
-      <main className="flex h-full">
-        <div className="bg-[url('../public/placeholder.jpg')] bg-cover w-5/12 h-full px-5 relative">
-          <button className="top-5 left-5 rounded bg-sky-500 absolute" onClick={() => {setPlace('1');}}>place 1</button>
+      <main className="grid grid-cols-2 gap-x-2 h-full">
+        <div className="bg-[url('../public/placeholder.jpg')] bg-cover w-full h-full px-5 relative">
+          <Image className="top-5 left-5 absolute" src={location} width={50} height={50} alt="location 1" onClick={() => {setPlace('1');}} />
+          <Image className="top-20 left-20 absolute" src={location} width={50} height={50} alt="location 2" onClick={() => {setPlace('2');}} />
+          <Image className="top-32 left-32 absolute" src={location} width={50} height={50} alt="location 3" onClick={() => {setPlace('3');}} />
         </div>
-        <div className="flex flex-col w-5/12">
+        <div className="flex flex-col">
           <div className="flex w-full justify-evenly">
             <div className="rounded border-sky-400 border-2 flex flex-col w-24 grow">
               <p>Sites</p>

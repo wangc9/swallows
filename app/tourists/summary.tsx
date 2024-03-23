@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import locationPin from '@/public/location-normal.svg';
 import destination from '@/public/destination.svg';

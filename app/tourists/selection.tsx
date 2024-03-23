@@ -6,13 +6,35 @@ import holiday from '@/public/holiday.svg';
 import volunteer from '@/public/volunteer.svg';
 import leftArrow from '@/public/left-arrow.svg';
 import rightArrow from '@/public/right-arrow.svg';
-import LocationDetail from "./locationDetail";
+import LocationDetail, { LocationDetailProps } from "./locationDetail";
 import placeholder from '@/public/placeholder.jpg';
+import JourneySummary from "./summary";
 
 
 export interface SelectionProps {
   state: string;
 }
+
+const data: Array<LocationDetailProps> = [{
+  location: 'Location 1',
+  city: 'City 1',
+  springActivity: 'Activity in spring',
+  summerActivity: 'Activity in summer',
+  autumnActivity: 'Activity in autumn',
+  winter: 'Activity in winter',
+  picture: placeholder,
+}, {
+  location: 'Location 2',
+  city: 'City 2',
+  autumnActivity: 'Activity in autumn',
+  winter: 'Activity in winter',
+  picture: placeholder,
+}, {
+  location: 'Location 3',
+  city: 'City 3',
+  springActivity: 'Activity in spring',
+  picture: placeholder,
+}]
 
 export default function Selection(props: SelectionProps) {
   const { state } = props;
@@ -99,17 +121,21 @@ export default function Selection(props: SelectionProps) {
             <p className="pl-4">Option 3</p>
           </div>
         </div>
+        <div className={`${step !== 3 && 'hidden'} flex flex-col`}>
+          <p className="self-center text-2xl font-bold py-6">Thank you for supporting the eco transition of the travel industry. Here is a summary of your journey</p>
+          <JourneySummary location={data[Number(state)].location} city={data[Number(state)].city} springActivity={data[Number(state)].springActivity} summerActivity={data[Number(state)].summerActivity} autumnActivity={data[Number(state)].autumnActivity} winter={data[Number(state)].winter} picture={data[Number(state)].picture} />
+        </div>
       </div>
       <nav className="flex justify-between px-6">
-          <button className={`${step === 0 && 'text-transparent'} flex px-4 py-2 rounded items-center hover:border-sky-500 ${step !== 0 && 'hover:border-2'} transition-all duration-100`} disabled={step === 0} onClick={() => {setStep(step - 1)}}>
-            <Image className={`${step === 0 && 'hidden'} pr-2`} src={leftArrow} width={25} height={25} alt="left" />
-            <p>previous</p>
-          </button>
-          <button className={`${step === 2 && 'text-transparent'} flex px-4 py-2 rounded items-center hover:border-sky-500 ${step !== 2 && 'hover:border-2'} transition-all duration-100`} disabled={step === 2} onClick={() => {setStep(step + 1)}}>
-            <p>next</p>
-            <Image className={`${step === 2 && 'hidden'} pl-2`} src={rightArrow} width={25} height={25} alt="right" />
-          </button>
-        </nav>
+        <button className={`${step === 0 && 'text-transparent'} flex px-4 py-2 rounded items-center hover:border-sky-500 ${step !== 0 && 'hover:border-2'} transition-all duration-100`} disabled={step === 0} onClick={() => {setStep(step - 1)}}>
+          <Image className={`${step === 0 && 'hidden'} pr-2`} src={leftArrow} width={25} height={25} alt="left" />
+          <p>previous</p>
+        </button>
+        <button className={`${(step === 3 || (step === 0 && state === '')) && 'text-transparent'} flex px-4 py-2 rounded items-center hover:border-sky-500 ${(step !== 3 && step !== 0 && state !== '') && 'hover:border-2'} transition-all duration-100`} disabled={step === 3} onClick={() => {setStep(step + 1)}}>
+          <p>next</p>
+          <Image className={`${(step === 3 || (step === 0 && state === '')) && 'hidden'} pl-2`} src={rightArrow} width={25} height={25} alt="right" />
+        </button>
+      </nav>
     </div>
     
   )

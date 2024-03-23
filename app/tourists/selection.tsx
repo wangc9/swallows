@@ -6,6 +6,9 @@ import holiday from '@/public/holiday.svg';
 import volunteer from '@/public/volunteer.svg';
 import leftArrow from '@/public/left-arrow.svg';
 import rightArrow from '@/public/right-arrow.svg';
+import LocationDetail from "./locationDetail";
+import placeholder from '@/public/placeholder.jpg';
+
 
 export interface SelectionProps {
   state: string;
@@ -19,17 +22,40 @@ export default function Selection(props: SelectionProps) {
 
   return (
     <div>
-      <div className="h-640 flex flex-col justify-between px-6">
-        <p className={`${step !== 0 && 'hidden'}`}>{state === '1' && 'Location 1'}{state === '2' && 'Location 2'}{state === '3' && 'Location 3'}{state === '' && 'Click on the map to read more about the location'}</p>
-        <div className={`${step !== 1 && 'hidden'} flex justify-evenly`}>
-          <button className={`flex flex-col items-center p-2 rounded-xl ${type === 1 && 'border-sky-500 border-2'} hover:border-sky-500 hover:border-2 transition-all duration-100`} onClick={() => {setType(1)}}>
-            <Image className="py-4" src={volunteer} width={100} height={100} alt="budget traveller" />
-            <p>Budget</p>
-          </button>
-          <button className={`flex flex-col items-center p-2 rounded-xl ${type === 2 && 'border-sky-500 border-2'} hover:border-sky-500 hover:border-2 transition-all duration-100`} onClick={() => {setType(2)}}>
-            <Image className="py-4" src={holiday} width={100} height={100} alt="leisure traveller" />
-            <p>Leisure</p>
-          </button>
+      <div className="h-600 flex flex-col justify-between px-6">
+        <div className={`${step !== 0 && 'hidden'}`}>
+          {state === '1' && (
+            <LocationDetail location="Location 1" city="City 1" springActivity="Activity in spring" summerActivity="Activity in summer" autumnActivity="Activity in autumn" winter="Activity in winter" picture={placeholder} />
+          )}
+          {state === '2' && 
+            <LocationDetail location="Location 2" city="City 2" autumnActivity="Activity in autumn" winter="Activity in winter" picture={placeholder} />
+          }
+          {state === '3' && 
+            <LocationDetail location="Location 3" city="City 3" springActivity="Activity in spring" picture={placeholder} />
+          }
+          {state === '' && 'Click on the map to read more about the location'}
+        </div>
+        <div className={`${step !== 1 && 'hidden'} flex flex-col`}>
+          <div className="flex justify-evenly">
+            <button className={`flex flex-col items-center p-2 rounded-xl ${type === 1 && 'border-sky-500 border-2'} hover:border-sky-500 hover:border-2 transition-all duration-100`} onClick={() => {setType(1)}}>
+              <Image className="py-4" src={volunteer} width={100} height={100} alt="budget traveller" />
+              <p>Budget</p>
+            </button>
+            <button className={`flex flex-col items-center p-2 rounded-xl ${type === 2 && 'border-sky-500 border-2'} hover:border-sky-500 hover:border-2 transition-all duration-100`} onClick={() => {setType(2)}}>
+              <Image className="py-4" src={holiday} width={100} height={100} alt="leisure traveller" />
+              <p>Leisure</p>
+            </button>
+          </div>
+          <ul className={`mt-4 ml-4 py-4 px-4 ${type === 1 ? ' ' : 'hidden'} w-full h-full border-2 border-sky-500 rounded-xl`}>
+            <li key={1}>Offer 1</li>
+            <li key={2}>Offer 2</li>
+            <li key={3}>Offer 3</li>
+          </ul>
+          <ul className={`mt-4 ml-4 py-4 px-4 ${type === 2 ? ' ' : 'hidden'} w-full h-full border-2 border-sky-500 rounded-xl`}>
+            <li key={1}>Offer 4</li>
+            <li key={2}>Offer 5</li>
+            <li key={3}>Offer 6</li>
+          </ul>
         </div>
         <div className={`${step !== 2 && 'hidden'} flex flex-col`}>
           <p>Headline</p>

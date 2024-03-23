@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       spacing: {
         480: '480px',
-        640: '640px',
+        600: '600px',
       },
       backgroundImage: {
         "map": "url('/public/placeholder.jpg')",

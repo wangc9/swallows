@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        67: '268px',
+        70: '280px',
         480: '480px',
         570: '570px',
       },

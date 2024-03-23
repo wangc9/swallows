@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${hankenGrotesk.className}`}>
-        <div className="relative h-screen">
+        <div className="relative h-1300">
           <div className="absolute inset-0 bg-opacity-75 bg-white" style={{zIndex: 1}} />
           <div className="absolute inset-0 bg-cover bg-center" style={{ zIndex: 0, backgroundImage: "url('/p4-opacity-small.jpg')"}} />
           <div className="absolute inset-0 px-10" style={{zIndex: 10}}>

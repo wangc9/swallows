@@ -13,7 +13,7 @@ export default function VisitFinland() {
       <main className="grid grid-cols-2 gap-x-2 gap-y-10 h-full">
       <Image className="justify-self-center" src={map} height={480} alt="euro map" />
         <div className="flex flex-col self-center">
-          <p className="pb-2">With Swallow, Visit Finland could benefit as a coordinator, monitoring the travel industry from different hubs and recruiting tourists who are interested and motived to join Visit Finland and continue the eco transition.</p>
+          <p className="pb-2 text-xl">With Swallow, Visit Finland could benefit as a coordinator, monitoring the travel industry from different hubs and recruiting tourists who are interested and motived to join Visit Finland and continue the eco transition.</p>
           <div className="flex w-full justify-evenly">
             <div className="rounded border-sky-400 border-2 flex flex-col w-24 grow">
               <p>Sites</p>

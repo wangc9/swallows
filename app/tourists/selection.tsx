@@ -44,7 +44,7 @@ export default function Selection(props: SelectionProps) {
 
   return (
     <div>
-      <div className="h-570 flex flex-col justify-between px-6">
+      <div className="min-h-570 flex flex-col justify-between px-6">
         <div className={`${step !== 0 && 'hidden'}`}>
           {state === '1' && (
             <LocationDetail location="Location 1" city="City 1" springActivity="Activity in spring" summerActivity="Activity in summer" autumnActivity="Activity in autumn" winter="Activity in winter" picture={placeholder} />
@@ -131,9 +131,9 @@ export default function Selection(props: SelectionProps) {
           <Image className={`${step === 0 && 'hidden'} pr-2`} src={leftArrow} width={25} height={25} alt="left" />
           <p>previous</p>
         </button>
-        <button className={`${(step === 3 || (step === 0 && state === '')) && 'text-transparent'} flex px-4 py-2 rounded items-center hover:border-sky-500 ${(step !== 3 && step !== 0 && state !== '') && 'hover:border-2'} transition-all duration-100`} disabled={step === 3} onClick={() => {setStep(step + 1)}}>
+        <button className={`${(step === 3 || (step === 0 && state === '') || (step === 1 && type === 0) || (step === 2 && addOn.length === 0)) && 'text-transparent'} flex px-4 py-2 rounded items-center hover:border-sky-500 ${(step !== 3 && (step !== 0 && state !== '')  && (step !== 1 && type !== 0) && (step !== 2 && addOn.length !== 0)) && 'hover:border-2'} transition-all duration-100`} disabled={step === 3} onClick={() => {setStep(step + 1)}}>
           <p>next</p>
-          <Image className={`${(step === 3 || (step === 0 && state === '')) && 'hidden'} pl-2`} src={rightArrow} width={25} height={25} alt="right" />
+          <Image className={`${(step === 3 || (step === 0 && state === '') || (step === 1 && type === 0) || (step === 2 && addOn.length === 0)) && 'hidden'} pl-2`} src={rightArrow} width={25} height={25} alt="right" />
         </button>
       </nav>
     </div>

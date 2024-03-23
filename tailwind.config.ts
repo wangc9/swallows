@@ -13,6 +13,9 @@ const config: Config = {
         480: '480px',
         570: '570px',
       },
+      screens: {
+        custom: '1060px',
+      },
       backgroundImage: {
         "map": "url('/public/placeholder.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

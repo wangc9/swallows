@@ -14,7 +14,7 @@ export default function Tourists() {
       <Header />
       <main className="grid grid-cols-2 gap-x-2 h-full">
         <div className="bg-[url('../public/Map.png')] bg-contain bg-no-repeat h-600 px-5 relative">
-          <Image className="top-70 left-70 absolute" src={location} width={50} height={50} alt="location 1" onClick={() => {setPlace('1');}} />
+          <Image className="top-70 left-70 absolute opacity-50 hover:opacity-100 transition-all duration-200" src={location} width={50} height={50} alt="location 1" onClick={() => {setPlace('1');}} />
           {/* <Image className="top-20 left-20 absolute" src={location} width={50} height={50} alt="location 2" onClick={() => {setPlace('2');}} />
           <Image className="top-32 left-32 absolute" src={location} width={50} height={50} alt="location 3" onClick={() => {setPlace('3');}} /> */}
         </div>
